@@ -9,6 +9,13 @@ project( ensdam VERSION 1.0 LANGUAGES Fortran )
 add_subdirectory(src EXCLUDE_FROM_ALL)
 add_subdirectory(python EXCLUDE_FROM_ALL)
 
+option(BUILD_EXAMPLES "Build example programs" OFF)
+
+if(BUILD_EXAMPLES)
+    add_subdirectory(examples/fortran)
+endif()
+#add_subdirectory(examples/fortran EXCLUDE_FROM_ALL)
+
 #add_custom_target(fortran DEPENDS ${PROJECT_NAME}_static ${PROJECT_NAME}_shared)
 add_custom_target(fortran DEPENDS ${PROJECT_NAME}_static)
 add_custom_target(python DEPENDS wheel )
