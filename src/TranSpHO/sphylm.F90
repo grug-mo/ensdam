@@ -196,7 +196,7 @@ MODULE ensdam_sphylm
         REAL(KIND=8), DIMENSION(0:,-jpl:), INTENT( out ) :: kproj
 
         INTEGER :: jpi, ji, k, l, m
-
+        !WRITE(6,*) 'HERE GIR'
         jpi=SIZE(ktab,1)
         IF (SIZE(klon,1).NE.jpi) STOP 'Inconsistent size in proj_ylm'
         IF (SIZE(klat,1).NE.jpi) STOP 'Inconsistent size in proj_ylm'
@@ -219,7 +219,9 @@ MODULE ensdam_sphylm
         ENDDO
 
 #if defined MPI
+        !WRITE(6,*)'GIR here flase', jpproc, jproc
         IF (.NOT.external_vector_decomposition) THEN
+          !WRITE(6,*)'GIR here', jpproc, jproc
           CALL MPI_ALLREDUCE (MPI_IN_PLACE, kproj, (jpl+1)*(2*jpl+1),  &
      &                        MPI_DOUBLE_PRECISION,                    &
      &                        MPI_SUM,mpi_comm_sphylm,mpi_code)
@@ -228,7 +230,7 @@ MODULE ensdam_sphylm
 
         END SUBROUTINE proj_ylm
 ! &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-! --------------------------------------------------------------------
+!----------------------------------------------------------------------
 ! &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
         SUBROUTINE back_ylm( kproj, ktab, klon, klat )
 !----------------------------------------------------------------------

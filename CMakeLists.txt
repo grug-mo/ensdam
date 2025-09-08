@@ -1,7 +1,7 @@
 cmake_minimum_required( VERSION 3.15 )
 
 #list( APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake )
-
+set( CMAKE_VERBOSE_MAKEFILE on )
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 project( ensdam VERSION 1.0 LANGUAGES Fortran )

@@ -27,7 +27,8 @@ set(NetCDF_LIBRARIES "${NetCDF_LIBRARIES} -lnetcdff")
 
 
 list ( APPEND example_srcs
-      low_pass_filter_on_the_sphere.f90
+      #low_pass_filter_on_the_sphere.f90
+      low_pass_filter_on_the_orcagrid.f90
       #mcmc_ensemble_update.F90
       #mcmc_ensemble_update_obs100err20loc06.h90
       #mcmc_ensemble_update_obs100err20loc06x2.h90
